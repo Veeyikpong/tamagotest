@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -16,8 +17,12 @@ import com.daimajia.slider.library.Indicators.PagerIndicator;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.DefaultSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.squareup.picasso.Picasso;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -30,9 +35,13 @@ public class TamagoFragment extends Fragment {
     protected PagerIndicator pagerIndicator;
 
     protected RecyclerView rv_language;
-    private LanguageAdapter adapter;
+    private LanguageAdapter languageAdapter;
 
-    ArrayList<String> imageUrls = new ArrayList<>();
+    private ArrayList<String> imageUrls = new ArrayList<>();
+
+    private String moviesJson;
+    protected RecyclerView rv_movies;
+    private MovieAdapter movieAdapter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -52,9 +61,23 @@ public class TamagoFragment extends Fragment {
 
         initSlideshow();
 
-        adapter = new LanguageAdapter(parentActivity,Util.languageArrayList);
+        languageAdapter = new LanguageAdapter(parentActivity,Util.languageArrayList);
         rv_language.setLayoutManager(new LinearLayoutManager(parentActivity,LinearLayoutManager.HORIZONTAL,false));
-        rv_language.setAdapter(adapter);
+        rv_language.setAdapter(languageAdapter);
+
+        moviesJson = readJSONFromAsset();
+
+        if(moviesJson!=null) {
+            Gson gson = new GsonBuilder().create();
+            JsonResponse response = gson.fromJson(moviesJson, JsonResponse.class);
+
+            rv_movies = (RecyclerView) rootView.findViewById(R.id.rv_movies);
+            GridLayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 2);
+            rv_movies.setLayoutManager(mLayoutManager);
+
+            movieAdapter = new MovieAdapter(parentActivity,response.movieList);
+            rv_movies.setAdapter(movieAdapter);
+        }
 
         return rootView;
     }
@@ -64,6 +87,7 @@ public class TamagoFragment extends Fragment {
         imageUrls.add("https://images-na.ssl-images-amazon.com/images/M/MV5BMTMzODU0NTkxMF5BMl5BanBnXkFtZTcwMjQ4MzMzMw@@._V1_SX300.jpg");
         imageUrls.add("https://images-na.ssl-images-amazon.com/images/M/MV5BMjkyMTE1OTYwNF5BMl5BanBnXkFtZTcwMDIxODYzMw@@._V1_SX300.jpg");
         imageUrls.add("https://images-na.ssl-images-amazon.com/images/M/MV5BNTM1NjYyNTY5OV5BMl5BanBnXkFtZTcwMjgwNTMzMQ@@._V1_SX300.jpg");
+        imageUrls.add("http://ia.media-imdb.com/images/M/MV5BMTYxNDA3MDQwNl5BMl5BanBnXkFtZTcwNTU4Mzc1Nw@@._V1_SX300.jpg");
 
         sliderShow.setDuration(5000);
         for(int i = 0;i<imageUrls.size();i++){
@@ -75,6 +99,22 @@ public class TamagoFragment extends Fragment {
 
 
         sliderShow.setCustomIndicator(pagerIndicator);
+    }
+
+    public String readJSONFromAsset() {
+        String json = null;
+        try {
+            InputStream is = parentActivity.getAssets().open("movies.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
     }
 }
 
