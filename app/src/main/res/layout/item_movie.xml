@@ -22,7 +22,7 @@
         android:layout_marginLeft="5dp"
         android:text="Actor"
         android:textColor="@color/white"
-        android:textSize="12sp" />
+        android:textSize="10sp" />
 
     <TextView
         android:id="@+id/tv_title"
@@ -34,7 +34,7 @@
         android:layout_marginLeft="5dp"
         android:text="Title"
         android:textColor="@color/white"
-        android:textSize="12sp" />
+        android:textSize="10sp" />
 
     <TextView
         android:id="@+id/tv_country"
@@ -46,5 +46,5 @@
         android:layout_marginRight="5dp"
         android:text="Country"
         android:textColor="@color/white"
-        android:textSize="12sp" />
+        android:textSize="10sp" />
 </RelativeLayout>

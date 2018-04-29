@@ -22,7 +22,7 @@
             android:background="@drawable/roundbg"
             android:clipToPadding="false"
             app:stl_defaultTabTextAllCaps="false"
-            app:stl_defaultTabTextColor="@color/black"
+            app:stl_defaultTabTextColor="@color/darkgrey"
             app:stl_defaultTabTextSize="14sp"
             app:stl_dividerColor="@color/colorPrimary"
             app:stl_dividerThickness="0dp"
@@ -44,7 +44,7 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="20dp"
             android:adjustViewBounds="true"
-            android:padding="3dp"
+            android:padding="5dp"
             android:src="@drawable/ic_search" />
     </RelativeLayout>
 

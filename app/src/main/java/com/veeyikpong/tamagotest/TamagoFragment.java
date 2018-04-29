@@ -2,6 +2,7 @@ package com.veeyikpong.tamagotest;
 
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -13,6 +14,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.cjj.MaterialRefreshLayout;
+import com.cjj.MaterialRefreshListener;
 import com.daimajia.slider.library.Indicators.PagerIndicator;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.DefaultSliderView;
@@ -27,7 +30,6 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-
 public class TamagoFragment extends Fragment {
 
     private MainActivity parentActivity;
@@ -37,11 +39,11 @@ public class TamagoFragment extends Fragment {
     protected RecyclerView rv_language;
     private LanguageAdapter languageAdapter;
 
-    private ArrayList<String> imageUrls = new ArrayList<>();
-
     private String moviesJson;
     protected RecyclerView rv_movies;
     private MovieAdapter movieAdapter;
+
+    protected MaterialRefreshLayout materialRefreshLayout;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -58,6 +60,26 @@ public class TamagoFragment extends Fragment {
         sliderShow = (SliderLayout) rootView.findViewById(R.id.slider);
         pagerIndicator = (PagerIndicator) rootView.findViewById(R.id.custom_indicator);
         rv_language = (RecyclerView) rootView.findViewById(R.id.rv_language);
+
+        materialRefreshLayout = (MaterialRefreshLayout) rootView.findViewById(R.id.refreshLayout);
+        materialRefreshLayout.setMaterialRefreshListener(new MaterialRefreshListener() {
+                                                             @Override
+                                                             public void onRefresh(final MaterialRefreshLayout materialRefreshLayout) {
+                                                                 Handler h = new Handler();
+                                                                 h.postDelayed(new Runnable() {
+                                                                     @Override
+                                                                     public void run() {
+                                                                         materialRefreshLayout.finishRefresh();
+                                                                     }
+                                                                 },1000);
+                                                             }
+
+                                                             @Override
+                                                             public void onRefreshLoadMore(MaterialRefreshLayout materialRefreshLayout) {
+                                                                 //load more refreshing...
+                                                             }
+                                                         });
+
 
         initSlideshow();
 
@@ -83,16 +105,13 @@ public class TamagoFragment extends Fragment {
     }
 
     private void initSlideshow(){
-        imageUrls.add("https://images-na.ssl-images-amazon.com/images/M/MV5BMTUwODE3MDE0MV5BMl5BanBnXkFtZTgwNTk1MjI4MzE@._V1_SX300.jpg");
-        imageUrls.add("https://images-na.ssl-images-amazon.com/images/M/MV5BMTMzODU0NTkxMF5BMl5BanBnXkFtZTcwMjQ4MzMzMw@@._V1_SX300.jpg");
-        imageUrls.add("https://images-na.ssl-images-amazon.com/images/M/MV5BMjkyMTE1OTYwNF5BMl5BanBnXkFtZTcwMDIxODYzMw@@._V1_SX300.jpg");
-        imageUrls.add("https://images-na.ssl-images-amazon.com/images/M/MV5BNTM1NjYyNTY5OV5BMl5BanBnXkFtZTcwMjgwNTMzMQ@@._V1_SX300.jpg");
-        imageUrls.add("http://ia.media-imdb.com/images/M/MV5BMTYxNDA3MDQwNl5BMl5BanBnXkFtZTcwNTU4Mzc1Nw@@._V1_SX300.jpg");
+
+        ArrayList<String> slideshowImageList = Util.slideshowImageList;
 
         sliderShow.setDuration(5000);
-        for(int i = 0;i<imageUrls.size();i++){
+        for(int i = 0;i<slideshowImageList.size();i++){
             DefaultSliderView defaultSliderView = new DefaultSliderView(parentActivity);
-            defaultSliderView.image(imageUrls.get(i));
+            defaultSliderView.image(slideshowImageList.get(i));
 
             sliderShow.addSlider(defaultSliderView);
         }
