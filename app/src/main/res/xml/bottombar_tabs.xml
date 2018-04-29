@@ -1,0 +1,14 @@
+<tabs xmlns:app="http://schemas.android.com/apk/res-auto">
+    <tab
+        id="@+id/tab_home"
+        icon="@drawable/homeicon"
+        title="" />
+    <tab
+        id="@+id/tab_live"
+        icon="@drawable/ic_live"
+        title="" />
+    <tab
+        id="@+id/tab_profile"
+        icon="@drawable/profileicon"
+        title="" />
+</tabs>
