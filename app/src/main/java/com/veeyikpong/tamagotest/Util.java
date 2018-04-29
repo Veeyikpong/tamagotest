@@ -7,10 +7,6 @@ import com.veeyikpong.tamagotest.models.Language;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-/**
- * Created by User on 30/4/2018.
- */
-
 public class Util {
 
     public static final ArrayList<String> slideshowImageList =

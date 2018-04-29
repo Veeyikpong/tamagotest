@@ -88,6 +88,7 @@ public class TamagoFragment extends Fragment {
 
         moviesJson = readJSONFromAsset();
 
+        //populating list data
         if(moviesJson!=null) {
             Gson gson = new GsonBuilder().create();
             JsonResponse response = gson.fromJson(moviesJson, JsonResponse.class);
@@ -97,7 +98,7 @@ public class TamagoFragment extends Fragment {
             GridLayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 2);
             rv_movies.setLayoutManager(mLayoutManager);
 
-            movieAdapter = new MovieAdapter(parentActivity,response.movieList);
+            movieAdapter = new MovieAdapter(parentActivity,response.getMovieList());
             rv_movies.setAdapter(movieAdapter);
         }
 

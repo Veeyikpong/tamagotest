@@ -13,10 +13,6 @@ import com.veeyikpong.tamagotest.R;
 
 import java.util.ArrayList;
 
-/**
- * Created by Juan on 23/4/2018.
- */
-
 public class LanguageAdapter extends RecyclerView.Adapter<LanguageAdapter.LanguageViewHolder>{
     private static MainActivity mActivity;
     private ArrayList<Language> languageList = new ArrayList<>();

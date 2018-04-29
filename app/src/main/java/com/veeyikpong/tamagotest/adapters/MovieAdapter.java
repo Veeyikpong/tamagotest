@@ -18,10 +18,6 @@ import com.veeyikpong.tamagotest.R;
 
 import java.util.ArrayList;
 
-/**
- * Created by Juan on 23/4/2018.
- */
-
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder>{
     private static MainActivity mActivity;
     private ArrayList<JsonResponse.Movie> movieArrayList = new ArrayList<>();

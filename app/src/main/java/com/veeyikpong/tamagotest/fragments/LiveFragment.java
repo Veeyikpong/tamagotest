@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import com.veeyikpong.tamagotest.MainActivity;
 import com.veeyikpong.tamagotest.R;
 
-
 public class LiveFragment extends Fragment {
 
     private MainActivity parentActivity;

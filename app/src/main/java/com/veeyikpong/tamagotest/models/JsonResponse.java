@@ -4,10 +4,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 
-/**
- * Created by User on 30/4/2018.
- */
-
 public class JsonResponse {
     public ArrayList<String> getGenreList() {
         return genreList;

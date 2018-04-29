@@ -1,9 +1,5 @@
 package com.veeyikpong.tamagotest.models;
 
-/**
- * Created by User on 30/4/2018.
- */
-
 public class Language {
     private int color;
     private int language;

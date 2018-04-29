@@ -12,10 +12,6 @@ import com.veeyikpong.tamagotest.fragments.TamagoFragment;
 
 import java.util.ArrayList;
 
-/**
- * Created by User on 29/4/2018.
- */
-
 public class MyPagerAdapter extends FragmentPagerAdapter {
     private static int NUM_ITEMS = 3;
     private ArrayList<String> tabs = new java.util.ArrayList<>();
