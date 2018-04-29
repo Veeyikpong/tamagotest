@@ -1,8 +1,12 @@
 package com.veeyikpong.tamagotest;
 
+import android.content.Context;
+import android.content.res.Resources;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import java.util.ArrayList;
 
 /**
  * Created by User on 29/4/2018.
@@ -10,10 +14,13 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 public class MyPagerAdapter extends FragmentPagerAdapter {
     private static int NUM_ITEMS = 3;
-    private String [] tabs = {"Channels","Tamago","Discovery"};
+    private ArrayList<String> tabs = new java.util.ArrayList<>();
 
-    public MyPagerAdapter(FragmentManager fragmentManager) {
+    public MyPagerAdapter(Context context, FragmentManager fragmentManager) {
         super(fragmentManager);
+        tabs.add(context.getString(R.string.channels));
+        tabs.add(context.getString(R.string.tamago));
+        tabs.add(context.getString(R.string.discovery));
     }
 
     // Returns total number of pages
@@ -27,11 +34,11 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0: // Fragment # 0 - This will show TamagoFragment
-                return new TamagoFragment();
+                return new ChannelsFragment();
             case 1: // Fragment # 0 - This will show TamagoFragment different title
                 return new TamagoFragment();
             case 2: // Fragment # 1 - This will show SecondFragment
-                return new TamagoFragment();
+                return new DiscoveryFragment();
             default:
                 return null;
         }
@@ -40,7 +47,7 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
     // Returns the page title for the top indicator
     @Override
     public CharSequence getPageTitle(int position) {
-        return tabs[position];
+        return tabs.get(position);
     }
 
 }

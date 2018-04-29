@@ -27,7 +27,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
-        MyPagerAdapter adapter = new MyPagerAdapter(getChildFragmentManager());
+        MyPagerAdapter adapter = new MyPagerAdapter(parentActivity,getChildFragmentManager());
         ViewPager viewPager = (ViewPager) rootView.findViewById(R.id.viewpager);
         viewPager.setAdapter(adapter);
 

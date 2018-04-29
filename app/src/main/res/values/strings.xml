@@ -2,5 +2,14 @@
     <string name="app_name">TamagoTest</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tamago">Tamago</string>
+    <string name="channels">Channels</string>
+    <string name="discovery">Discovery</string>
+
+    <string name="english">English</string>
+    <string name="chinese">中文</string>
+    <string name="indonesian">Indonesian</string>
+    <string name="tagalog">Tagalog</string>
+    <string name="vietnamese">Vietnamese</string>
+    <string name="melayu">Melayu</string>
 </resources>

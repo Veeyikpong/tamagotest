@@ -21,4 +21,5 @@
         app:bb_tabXmlResource="@xml/bottombar_tabs"
         app:bb_activeTabColor="@android:color/transparent"
         app:bb_inActiveTabColor="@android:color/transparent"/>
+
 </RelativeLayout>
