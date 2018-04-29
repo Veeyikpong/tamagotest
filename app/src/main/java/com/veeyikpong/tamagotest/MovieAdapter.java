@@ -43,7 +43,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     @Override
     public void onBindViewHolder(final MovieViewHolder holder, final int position) {
         if(!movieArrayList.get(position).getPosterURL().equals("") && movieArrayList.get(position).getPosterURL()!=null && !TextUtils.isEmpty(movieArrayList.get(position).getPosterURL())){
-            Picasso.with(mActivity).load(movieArrayList.get(position).getPosterURL()).fit().into(holder.img_thumbnail, new Callback() {
+            Picasso.with(mActivity).load(movieArrayList.get(position).getPosterURL()).resize(200,200).centerCrop().into(holder.img_thumbnail, new Callback() {
                 @Override
                 public void onSuccess() {
                     //Check if url doesnt contains an image

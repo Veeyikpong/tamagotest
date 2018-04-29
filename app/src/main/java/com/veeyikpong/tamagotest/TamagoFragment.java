@@ -94,6 +94,7 @@ public class TamagoFragment extends Fragment {
             JsonResponse response = gson.fromJson(moviesJson, JsonResponse.class);
 
             rv_movies = (RecyclerView) rootView.findViewById(R.id.rv_movies);
+            rv_movies.setNestedScrollingEnabled(false);
             GridLayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 2);
             rv_movies.setLayoutManager(mLayoutManager);
 
@@ -115,7 +116,6 @@ public class TamagoFragment extends Fragment {
 
             sliderShow.addSlider(defaultSliderView);
         }
-
 
         sliderShow.setCustomIndicator(pagerIndicator);
     }

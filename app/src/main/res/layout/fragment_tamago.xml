@@ -5,59 +5,65 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        xmlns:custom="http://schemas.android.com/apk/res-auto">
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
 
-        <com.daimajia.slider.library.SliderLayout
-            android:id="@+id/slider"
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:custom="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="20dp" />
+            android:layout_height="match_parent">
 
-        <com.daimajia.slider.library.Indicators.PagerIndicator
-            android:id="@+id/custom_indicator"
-            android:layout_width="100dp"
-            android:layout_height="20dp"
-            android:layout_alignBottom="@id/slider"
-            android:layout_alignEnd="@id/slider"
-            android:layout_gravity="right"
-            android:layout_marginRight="25dp"
-            android:gravity="right"
-            custom:selected_color="@color/red"
-            custom:unselected_color="@color/darkgrey" />
+            <com.daimajia.slider.library.SliderLayout
+                android:id="@+id/slider"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp" />
 
-        <TextView
-            android:id="@+id/tv_chooseLanguage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/slider"
-            android:layout_marginLeft="10dp"
-            android:text="Choose Language"
-            android:textColor="@color/black"
-            android:textSize="14sp" />
+            <com.daimajia.slider.library.Indicators.PagerIndicator
+                android:id="@+id/custom_indicator"
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:layout_alignBottom="@id/slider"
+                android:layout_alignEnd="@id/slider"
+                android:layout_gravity="right"
+                android:layout_marginRight="25dp"
+                android:gravity="right"
+                custom:selected_color="@color/red"
+                custom:unselected_color="@color/darkgrey" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_language"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_chooseLanguage"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal" />
+            <TextView
+                android:id="@+id/tv_chooseLanguage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/slider"
+                android:layout_marginLeft="10dp"
+                android:text="Choose Language"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_movies"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/rv_language"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal" />
-    </RelativeLayout>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_language"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_chooseLanguage"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_movies"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rv_language"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal" />
+        </RelativeLayout>
+    </ScrollView>
 </com.cjj.MaterialRefreshLayout>
