@@ -1,10 +1,14 @@
-package com.veeyikpong.tamagotest;
+package com.veeyikpong.tamagotest.adapters;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.veeyikpong.tamagotest.R;
+import com.veeyikpong.tamagotest.fragments.ChannelsFragment;
+import com.veeyikpong.tamagotest.fragments.DiscoveryFragment;
+import com.veeyikpong.tamagotest.fragments.TamagoFragment;
 
 import java.util.ArrayList;
 

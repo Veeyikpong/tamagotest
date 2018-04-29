@@ -1,20 +1,19 @@
 package com.veeyikpong.tamagotest;
 
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
-import com.ogaclejapan.smarttablayout.SmartTabLayout;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
+import com.veeyikpong.tamagotest.fragments.HomeFragment;
+import com.veeyikpong.tamagotest.fragments.LiveFragment;
+import com.veeyikpong.tamagotest.fragments.ProfileFragment;
 import com.viven.fragmentstatemanager.FragmentStateManager;
 
 public class MainActivity extends AppCompatActivity {

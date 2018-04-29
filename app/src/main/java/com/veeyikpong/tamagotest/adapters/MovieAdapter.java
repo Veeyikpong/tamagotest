@@ -1,22 +1,20 @@
-package com.veeyikpong.tamagotest;
+package com.veeyikpong.tamagotest.adapters;
 
 import android.graphics.Color;
-import android.media.Image;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
-
-import org.w3c.dom.Text;
+import com.veeyikpong.tamagotest.models.JsonResponse;
+import com.veeyikpong.tamagotest.MainActivity;
+import com.veeyikpong.tamagotest.R;
 
 import java.util.ArrayList;
 

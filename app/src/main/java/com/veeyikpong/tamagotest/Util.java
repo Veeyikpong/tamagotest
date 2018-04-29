@@ -1,9 +1,9 @@
 package com.veeyikpong.tamagotest;
 
-import android.content.res.Resources;
 import android.graphics.Color;
 
-import java.lang.reflect.Array;
+import com.veeyikpong.tamagotest.models.Language;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 

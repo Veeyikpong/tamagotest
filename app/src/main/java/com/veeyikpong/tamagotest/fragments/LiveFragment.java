@@ -1,4 +1,4 @@
-package com.veeyikpong.tamagotest;
+package com.veeyikpong.tamagotest.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -6,8 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.veeyikpong.tamagotest.MainActivity;
+import com.veeyikpong.tamagotest.R;
 
-public class DiscoveryFragment extends Fragment {
+
+public class LiveFragment extends Fragment {
 
     private MainActivity parentActivity;
 
@@ -21,7 +24,7 @@ public class DiscoveryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_discovery, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_live, container, false);
 
         return rootView;
     }

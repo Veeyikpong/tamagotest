@@ -1,4 +1,4 @@
-package com.veeyikpong.tamagotest;
+package com.veeyikpong.tamagotest.models;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -31,7 +31,7 @@ public class JsonResponse {
     @SerializedName("movies")
     ArrayList<Movie> movieList;
 
-    static class Movie{
+    public static class Movie{
         @SerializedName("id")
         private int id;
 

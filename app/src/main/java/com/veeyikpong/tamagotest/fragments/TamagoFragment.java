@@ -1,15 +1,12 @@
-package com.veeyikpong.tamagotest;
+package com.veeyikpong.tamagotest.fragments;
 
-import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,16 +16,18 @@ import com.cjj.MaterialRefreshListener;
 import com.daimajia.slider.library.Indicators.PagerIndicator;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.DefaultSliderView;
-import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.squareup.picasso.Picasso;
+import com.veeyikpong.tamagotest.models.JsonResponse;
+import com.veeyikpong.tamagotest.adapters.LanguageAdapter;
+import com.veeyikpong.tamagotest.MainActivity;
+import com.veeyikpong.tamagotest.adapters.MovieAdapter;
+import com.veeyikpong.tamagotest.R;
+import com.veeyikpong.tamagotest.Util;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class TamagoFragment extends Fragment {
 
@@ -83,7 +82,7 @@ public class TamagoFragment extends Fragment {
 
         initSlideshow();
 
-        languageAdapter = new LanguageAdapter(parentActivity,Util.languageArrayList);
+        languageAdapter = new LanguageAdapter(parentActivity, Util.languageArrayList);
         rv_language.setLayoutManager(new LinearLayoutManager(parentActivity,LinearLayoutManager.HORIZONTAL,false));
         rv_language.setAdapter(languageAdapter);
 

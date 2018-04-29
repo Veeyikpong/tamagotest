@@ -1,4 +1,4 @@
-package com.veeyikpong.tamagotest;
+package com.veeyikpong.tamagotest.models;
 
 /**
  * Created by User on 30/4/2018.

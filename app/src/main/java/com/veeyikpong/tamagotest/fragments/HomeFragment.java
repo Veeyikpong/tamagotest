@@ -1,4 +1,4 @@
-package com.veeyikpong.tamagotest;
+package com.veeyikpong.tamagotest.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,6 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
+import com.veeyikpong.tamagotest.MainActivity;
+import com.veeyikpong.tamagotest.adapters.MyPagerAdapter;
+import com.veeyikpong.tamagotest.R;
 
 
 public class HomeFragment extends Fragment {
